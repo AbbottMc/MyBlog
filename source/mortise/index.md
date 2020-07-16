@@ -4,7 +4,7 @@ date: 2020-07-14 17:18:34
 export_md: false
 ---
 
-榫框架为本人开发的一款以提供更加便捷的脚本API、高效实现Addon联动、提供跨Addon数据管理为目的的框架系统。其包含两个部分：**榫核心框架Addon**与**七巧UI框架**。
+榫框架为本人开发的一款以提供更加便捷的脚本API、高效实现Addon联动、跨Addon数据管理为目的的框架系统。其包含两个部分：**榫核心框架Addon**与**七巧UI框架**。
 
 #### 榫核心框架
 
@@ -18,7 +18,7 @@ export_md: false
 
 </br>
 
-下载地址：https://wws.lanzous.com/isjDOeo1rmd
+下载地址：https://wws.lanzous.com/ixH6Aeo20ej
 
 目前依赖榫框架的Addon有：
 

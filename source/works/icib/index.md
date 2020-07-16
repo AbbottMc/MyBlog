@@ -19,6 +19,8 @@ export_md: false
 
 相关Wiki ：[点此进入](/MyBlog/works/icib/index.html)
 
+介绍视频：https://www.bilibili.com/video/BV1PT4y1E7UY/
+
 ### 简介
 
 工业2是java版中有名的老牌模组，其工业化的体系，流水线化的机器吸引了许多MC玩家。
@@ -27,8 +29,6 @@ export_md: false
 
 ### 下载地址
 
-[点此下载 v0.4.0](https://wws.lanzous.com/iEGFzeo1qbg)
+[点此下载 v0.4.0](https://wws.lanzous.com/iTCDBeo1zxc)
 
 <img src="\MyBlog\works\images\icib_cover.png"></img>
-
-[历史版本(密码：83cr)](https://wws.lanzous.com/b01bjj2xg)
