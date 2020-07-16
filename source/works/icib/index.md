@@ -17,9 +17,7 @@ export_md: false
 
 适用游戏版本：`1.16.0+`
 
-更新日志：[点此查看](/MyBlog/wikis/icib/update_log/v0.4.0.html)
-
-Wiki ：[点此进入](/MyBlog/works/icib/index.html)
+相关Wiki ：[点此进入](/MyBlog/works/icib/index.html)
 
 ### 简介
 
@@ -29,7 +27,7 @@ Wiki ：[点此进入](/MyBlog/works/icib/index.html)
 
 ### 下载地址
 
-[点此下载 v0.4.0](https://wws.lanzous.com/iaI94ej4wji)
+[点此下载 v0.4.0](https://wws.lanzous.com/iEGFzeo1qbg)
 
 <img src="\MyBlog\works\images\icib_cover.png"></img>
 
