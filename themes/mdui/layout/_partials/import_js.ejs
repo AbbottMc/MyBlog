@@ -1,0 +1,47 @@
+<!-- import js -->
+
+<% if(theme.vendors.outdatedbrowser_min_js) { %>
+  <script src="<%= theme.vendors.outdatedbrowser_min_js %>" type="text/javascript"></script>
+<% } else { %>
+  <%- js('js/outdatedbrowser.min') %>
+<% } %>
+
+<% if(theme.vendors.js_min_js) { %>
+  <script src="<%= theme.vendors.js_min_js %>" type="text/javascript"></script>
+<% } else { %>
+  <% if (theme.router === true) { %>
+    <%- js('js/js.barba.min') %>
+    <script type="text/javascript">
+      Barba.Utils.errorPageUrl = '<%= url_for('/404.html') %>';
+    </script>
+  <% } else { %>
+    <%- js('js/js.pure.min') %>
+  <% } %>
+<% } %>
+
+<!-- theme js -->
+<%-partial('js/appbar')%>
+
+<% if (theme.service_worker === true || theme.service_worker === 'pwa') { %>
+  <script>
+    if ('serviceWorker' in navigator) {
+     navigator.serviceWorker.register('<%= config.root + 'sw.js' %>');
+    }
+  </script>
+<% } %>
+
+<% if (theme.vendors.custom_js === true) { %>
+  <!-- Custom JS -->
+  <%-partial('../_custom/custom_js')%>
+<% } %>
+
+<script type="text/javascript">
+  document.querySelector('body').classList.add('theme-loaded')
+</script>
+
+<% if (process.env.npm_config_demo === "true") { %>
+  <script type="text/javascript">
+    mdui.alert("This site and its content are for demo only! If the site reloaded, you will see this alert again.", "Demo Alert", function(){},{history:false})
+    console.warn("This site is for demo only!")
+  </script>
+<% } %>

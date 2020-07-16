@@ -1,0 +1,33 @@
+<div class="theme-drawer__header">
+  <div class="theme-drawer__header__layer-1">
+    <div class="mdui-toolbar theme-toolbar-top">
+      <% if (is_home()) { %>
+        <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple theme-appbar__burger theme-appbar__burger--drawer"  id="drawer-back">
+          <i class="mdui-icon">
+            <span></span>
+          </i>
+        </a>
+      <% } else { %>
+        <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple theme-appbar__burger theme-appbar__burger--drawer theme-appbar__burger--arrow" id="drawer-back">
+          <i class="mdui-icon">
+            <span></span>
+          </i>
+        </a>
+      <% } %>
+    </div>
+    <div class="mdui-toolbar theme-toolbar-bottom">
+      <span class="theme-toolbar-bottom__title"><%= config.title %></span>
+    </div>
+  </div>
+  <div class="theme-drawer__header__layer-2" style="background-image: url(<%= url_for(theme.info.bg_image) %>)">
+    <img class="mdui-img-circle theme-drawer__header__layer-2__user__avatar" src="<%= url_for(theme.info.avatar) %>"/>
+    <div class="theme-drawer__header__layer-2__user__info">
+      <div class="theme-drawer__header__layer-2__user__info__author mdui-text-color-white-text">
+        <%= config.author %>
+      </div>
+      <div class="theme-drawer__header__layer-2__user__info__slogan mdui-text-color-white-secondary">
+        <%= theme.info.slogan %>
+      </div>
+    </div>
+  </div>
+</div>

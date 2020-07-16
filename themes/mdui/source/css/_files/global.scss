@@ -1,0 +1,70 @@
+.theme-loaded {
+  #spinner {
+    opacity: 0;
+    display: none;
+  }
+  main {
+    display: block;
+    opacity: 1;
+  }
+  transition: background-color 0.3s cubic-bezier(0, 0, 0.2, 1), padding 0.3s cubic-bezier(0, 0, 0.2, 1) !important;
+}
+
+/* 添加在<a>中 */
+.theme-menu-badge-fix {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+span.theme-menu-badge {
+  font-size: 1rem;
+  line-height: 22px;
+  float: right;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  min-width: 3rem;
+  height: 22px;
+  margin-left: 14px;
+  padding: 0 6px;
+  text-align: center;
+  color: #757575;
+  &.new {
+    font-size: .8rem;
+    font-weight: 300;
+    color: #fff;
+    border-radius: 2px;
+    background-color: #26a69a;
+  }
+  &[data-badge-caption]::after {
+    content: ' ' attr(data-badge-caption);
+  }
+}
+
+.mdui-divider {
+  min-height: 1px;
+}
+
+.theme-spacer {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.theme-link--no-style {
+  text-decoration: none;
+  color: inherit;
+}
+
+.theme-end-footer {
+  padding: 16px;
+  @media (min-width: 600px) {
+    padding: 32px;
+  }
+}

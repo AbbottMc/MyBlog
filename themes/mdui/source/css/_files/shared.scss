@@ -1,0 +1,30 @@
+// two toolbals
+$main-class: theme-toolbar;
+body {
+  padding-top: 128px;
+}
+
+.#{$main-class}-top, & .#{$main-class}-bottom {
+  height: 64px !important;
+}
+
+.#{$main-class}-bottom {
+  $sub-class: #{$main-class}-bottom;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  & .#{$sub-class}__title {
+    overflow: visible;
+    font-size: 56px;
+    font-weight: 800;
+    padding-bottom: 36px;
+    @media (max-width: 599px) {
+      font-size: 42px;
+      padding-bottom: 16px;
+    }
+  }
+  & .#{$sub-class}__search {
+    position: absolute;
+    right: 0;
+  }
+}

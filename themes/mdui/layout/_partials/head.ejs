@@ -1,0 +1,114 @@
+<%
+var pageTitle = page.title || '';
+if (is_home()) pageTitle = __('global.index');
+if (is_archive()) pageTitle = __('global.archives');
+if (is_tag()) pageTitle = __('global.tag') + ': ' + page.tag;
+if (is_category()) pageTitle = __('global.category') + ': ' + page.category;
+if (is_year()) pageTitle = page.year;
+if (page.path === 'search.html') pageTitle = __('search.text');
+pageTitle += ' - ' + config.title;
+%>
+
+<head>
+  <script>
+    window.themeRuntime = {
+      root: "<%= config.root %>",
+      scriptsMap: {},
+      init: {
+        status: false
+      },
+      commentRest: {
+        status: false
+      },
+      versions: {
+        theme: "2.1.0",
+        mdui: "0.4.0",
+        fetch: "3.0.0",
+        es6promise: "4.2.5+7f2b526d",
+        lightgallery: "1.0.1",
+        smoothscroll: "15.2.0"
+      }
+      <% if (theme.debug === true) { %>
+        ,debug: {
+          hexo: "<%= env.version %>",
+          node: "<%= process.versions.node %>",
+          platform: "<%= process.platform %>"
+        }
+      <% } %>
+    };
+    console.info("%cCopyright © 2018 - " + new Date().getFullYear() +" Halyul\n"+'Theme Version: ' + themeRuntime.versions.theme +'%c\nhttps://github.com/Halyul/hexo-theme-mdui',"font-size: 14px;color: #3F51B5;","color: #448AFF;text-decoration: none");
+  </script>
+  <!--
+        © HEXO MDUI Theme
+        https://github.com/Halyul/hexo-theme-mdui
+        -->
+
+  <meta charset="UTF-8">
+  <title><%= pageTitle %></title>
+
+  <!-- Favicons -->
+  <link rel="icon shortcut" type="image/ico" href="<%= url_for(theme.head.favicon) %>">
+  <link rel="icon" sizes="192x192" href="<%= url_for(theme.head.high_res_favicon) %>">
+  <link rel="apple-touch-icon" href="<%= url_for(theme.head.apple_touch_icon) %>">
+
+  <!-- Meta & Info -->
+  <meta http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <meta name="theme-color" content="#fff">
+
+  <meta name="author" content="<%= config.author %>">
+  <% if(page.description) { %>
+      <meta name="description" itemprop="description" content="<%= page.description %>">
+  <% } else if(page.excerpt){ %>
+      <meta name="description" content="<%= strip_html(page.excerpt).replace(/^s*/, '').replace(/s*$/, '') %>">
+  <% } else if (config.description){ %>
+      <meta name="description" content="<%= config.description %>">
+  <% } %>
+  <meta name="keywords" content="<%= theme.head.keywords %><% if(page.tags && page.tags.each) { page.tags.each(function(tag) { %><%- ',' + tag.name %><% })} %>">
+
+  <!--iOS -->
+  <meta name="apple-mobile-web-app-title" content="<%= config.title %>">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="480">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <!-- The Open Graph protocol -->
+  <meta property="og:url" content="<%= config.url %>">
+  <meta property="og:type" content="blog">
+  <meta property="og:title" content="<% if (pageTitle) { %><%= pageTitle %> | <% } %><%= config.title %>">
+  <meta property="og:image" content="<%= theme.head.high_res_favicon %>" />
+  <% if(page.description) { %>
+    <meta property="og:description" content="<%= page.description %>">
+  <% } else if(page.excerpt){ %>
+    <meta property="og:description" content="<%= strip_html(page.excerpt).replace(/^s*/, '').replace(/s*$/, '') %>">
+  <% } else if (config.description){ %>
+    <meta property="og:description" content="<%= config.description %>">
+  <% } %>
+
+  <% if(page.tags && page.tags.each) { page.tags.each(function(tag){ %>
+    <meta property="og:article:tag" content="<%= tag.name %>">
+  <% })} %>
+
+  <% if (theme.service_worker === 'pwa') { %>
+    <!-- PWA -->
+    <link rel="manifest" href="<%= url_for('manifest.json') %>">
+  <% } %>
+
+  <!-- Import CSS -->
+  <% if(theme.vendors.style_min_css) { %>
+    <link href="<%= theme.vendors.style_min_css %>" rel="stylesheet">
+  <% } else { %>
+    <%- css('css/mdui') %>
+  <% } %>
+
+  <% if (theme.vendors.custom_head === true) { %>
+    <!-- Custom Head -->
+    <%-partial('../_custom/custom_head')%>
+  <% } %>
+
+</head>

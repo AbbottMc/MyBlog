@@ -1,0 +1,203 @@
+<% var pagination;
+  var usePath = false;
+  if (page.slug === undefined) {
+    page.path = page.path.replace('/index.html', '')
+    usePath = true
+  }
+  var pageToc = toc(page.content)
+%>
+<%
+  if (theme.post.random_pics !== false && theme.post.random_pics) {
+    var randomPic = Math.floor(Math.random() * theme.post.random_pics + 1);
+  }
+%>
+
+<% if (theme.post.prism.theme) { %>
+  <%- css('css/prism/' + theme.post.prism.theme + '.min') %>
+<% } %>
+<% if (theme.post.prism.line_number === true) { %>
+  <%- css('css/prism/line-number.min') %>
+<% } %>
+
+<div class="theme-post">
+  <div class="theme-post__background mdui-color-theme"></div>
+  <div class="theme-post__header mdui-color-theme">
+    <div class="theme-post__header__title mdui-text-truncate">
+      <%= page.title %>
+    </div>
+    <div class="theme-spacer"></div>
+    <div class="theme-post__header__actions mdui-valign">
+      <div>
+        <span><%= __('posts.posted') %></span>
+        <span style="float: right"><%= date(page.date, 'MMM DD, YYYY') %></span>
+        <%  var posted = date(page.date, 'MMM DD, YYYY')
+            var edited = date(page.updated, 'MMM DD, YYYY')
+            if (posted !== edited) { %>
+        <br>
+          <span><%= __('posts.edited') %></span>
+          <span><%= edited %></span>
+        <% } %>
+      </div>
+      <%- partial('_partials/menu/qrcode') %>
+      <%- partial('_partials/menu/share/post') %>
+    </div>
+  </div>
+  <div class="theme-post__warpper
+    <% if (pageToc.length === 0) { %>
+      theme-post__warpper--center
+    <% } %>
+  ">
+    <div class="theme-post__warpper__container">
+      <article class="mdui-card theme-post__card <% if (theme.style.hoverable === true) { %>mdui-hoverable<% } %>">
+        <section class="theme-post__card__warning">
+          <%= __('posts.modified.head') %>
+          <span id="content-warning"></span>
+          <%= __('posts.modified.foot') %>
+          <%= __('posts.modified.content') %>
+        </section>
+        <% if (theme.post.word_count === true || theme.post.read_time === true) { %>
+          <section class="theme-post__card__count">
+            <% if (theme.post.word_count === true) { %>
+              <span>
+                <%= __('posts.count.words.head') %><%= wordcount(page.content) %><%= __('posts.count.words.foot') %>
+              </span>
+            <% } %>
+            <% if (theme.post.read_time === true) { %>
+              <span>
+                <%= __('posts.count.time.head') %><%= min2read(page.content, {cn: 600, en: 160}) %><%= __('posts.count.time.foot') %>
+              </span>
+            <% } %>
+          </section>
+        <% } %>
+        <% if (theme.post.random_pics !== false && theme.post.random_pics) { %>
+          <section class="mdui-card-media">
+            <img src="<%= page.thumbnail || config.root + 'images/random/' + randomPic + '.png' %>"/>
+          </section>
+        <% } %>
+        <section class="mdui-typo theme-post__card__content">
+          <%-page.content%>
+        </section>
+
+        <% if (page.license_name || theme.post.license.name || page.export_md !== false) { %>
+          <section class="theme-post__card__license mdui-typo">
+            <span>
+              <%= __('posts.license') %>
+              <% if (page.license_link || theme.post.license.link) { %>
+                <a href="<%= page.license_link || theme.post.license.link %>" target="_blank"><%= page.license_name || theme.post.license.name %></a>
+              <% } else { %>
+                <%= page.license_name || theme.post.license.name %>
+              <% } %>
+            </span>
+            <br />
+            <span><%= __('posts.permalink') %><a href="<%= page.permalink %>"><%= page.permalink %></a></span>
+            <% if (page.export_md !== false) { %>
+              <br />
+              <span><%= __('posts.markdown') %><a href="<%= page.permalink + page.slug + '.md' %>"><%= page.permalink + page.slug + '.md' %></a></span>
+            <% } %>
+          </section>
+        <% } %>
+
+        <% if ((page.categories && page.categories.length) || (page.tags && page.tags.length) || theme.post.donate !== null) { %>
+          <section class="mdui-card-actions theme-post__card__actions">
+            <% if (theme.post.donate !== null) { %>
+              <button class="mdui-btn mdui-btn-icon mdui-btn-dense mdui-ripple  mdui-color-red" mdui-tooltip="{content: '<%= __('posts.donate.button') %>', position: 'right'}" mdui-dialog="{target: '#donateDialog'}">
+                <i class="mdui-icon fa fa-beer"></i>
+              </button>
+            <% } %>
+            <div class="theme-spacer"></div>
+            <% if (page.categories && page.categories.length) { %>
+              <div class="mdui-chip theme-post__card__chip--bg theme-post__card__chip--margin">
+                <span class="mdui-chip-icon theme-post__card__chip--bg"><i class="mdui-icon mdui-text-color-black-icon material-icons">&#xe149;</i></span>
+              </div>
+              <div class="mdui-typo">
+                <% page.categories.map(function(category){  %>
+                  <a href="<%= url_for(category.path) %>">
+                    <span><%= category.name %></span>
+                  </a>
+                <% }) %>
+              </div>
+            <% } %>
+            <% if (page.tags && page.tags.length) { %>
+              <div class="mdui-chip theme-post__card__chip--bg theme-post__card__chip--margin">
+                <span class="mdui-chip-icon theme-post__card__chip--bg"><i class="mdui-icon mdui-text-color-black-icon fa fa-tags"></i></span>
+              </div>
+              <div class="mdui-typo">
+                <% page.tags.map(function(tag){  %>
+                  <a href="<%= url_for(tag.path) %>">
+                    <span><%= tag.name %></span>
+                  </a>
+                <% }) %>
+              </div>
+            <% } %>
+          </section>
+        <% } %>
+
+        <% if (page.comment !== false) { %>
+          <% if (theme.comment.use === 'disqus' || theme.comment.use === 'custom' || theme.comment.use === 'valine') { %>
+            <section>
+              <div class="mdui-divider"></div>
+            </section>
+            <section class="theme-post__card__comment">
+              <%- partial('_partials/comment') %>
+            </section>
+          <% } else { %>
+            <script type="text/javascript">
+              themeRuntime.commentRest.function = function (newIdentifier, newUrl, newTitle) {
+                return
+              }
+            </script>
+          <% } %>
+        <% } else { %>
+          <script type="text/javascript">
+            themeRuntime.commentRest.function = function (newIdentifier, newUrl, newTitle) {
+              return
+            }
+          </script>
+        <% } %>
+      </article>
+      <% if (pageToc.length > 0) { %>
+        <div class="mdui-color-theme theme-post__toc">
+          <%- tocContentHelper(pageToc) %>
+        </div>
+      <% } %>
+    </div>
+  </div>
+
+  <div class="theme-spacer"></div>
+
+  <% if (pageToc.length > 0) { %>
+    <%-partial('_partials/fab/post', {pageToc: pageToc})%>
+  <% } %>
+
+  <% if (pagination !== false) { %>
+    <%-partial('_partials/pagination/post')%>
+  <% } %>
+
+  <% if (theme.post.donate !== null) { %>
+    <div class="mdui-dialog" id="donateDialog">
+      <div class="mdui-dialog-title"><%= __('posts.donate.button') %></div>
+      <div class="mdui-dialog-content">
+        <div class="mdui-list">
+          <% for (var x in theme.post.donate){ %>
+            <a href="<%= theme.post.donate[x].link %>" title="<%= x %>" class="mdui-list-item mdui-ripple" target="_blank">
+              <% if (theme.post.donate[x].fa) { %>
+                <i class="mdui-list-item-icon mdui-icon fa <%= theme.post.donate[x].fa %> mdui-text-center"></i>&emsp;
+              <% } %>
+              <% if (theme.post.donate[x].md) { %>
+                <i class="mdui-list-item-icon mdui-icon material-icons"><%- theme.post.donate[x].md %></i>&emsp;
+              <% } %>
+              <% if (theme.post.donate[x].null_icon === true) { %>
+                <i class="mdui-list-item-icon"></i>&emsp;
+              <% } %>
+              <%= x %>
+            </a>
+          <% } %>
+        </div>
+      </div>
+      <div class="mdui-dialog-actions">
+        <button class="mdui-btn mdui-ripple mdui-ripple" mdui-dialog-close><%= __('posts.donate.close') %></button>
+      </div>
+    </div>
+  <% } %>
+</div>
+<%-partial('_partials/js/post')%>

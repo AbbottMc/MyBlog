@@ -1,0 +1,45 @@
+@mixin bg-color($color) {
+  background-color: $color;
+}
+@mixin color($color) {
+  color: $color;
+}
+@mixin border-left-color($color) {
+  border-left-color: $color;
+}
+
+.theme-post__card__count {
+  @if $accent-color == accent-amber {
+    @include border-left-color(#ffd740);
+  } @else if $accent-color == accent-blue {
+    @include border-left-color(#448aff);
+  } @else if $accent-color == accent-cyan {
+    @include border-left-color(#18ffff);
+  } @else if $accent-color == accent-deep-orange {
+    @include border-left-color(#ff6e40);
+  } @else if $accent-color == accent-deep-purple {
+    @include border-left-color(#7c4dff);
+  } @else if $accent-color == accent-green {
+    @include border-left-color(#69f0ae);
+  } @else if $accent-color == accent-indigo {
+    @include border-left-color(#536dfe);
+  } @else if $accent-color == accent-light-blue {
+    @include border-left-color(#40c4ff);
+  } @else if $accent-color == accent-light-green {
+    @include border-left-color(#b2ff59);
+  } @else if $accent-color == accent-lime {
+    @include border-left-color(#eeff41);
+  } @else if $accent-color == accent-orange {
+    @include border-left-color(#ffab40);
+  } @else if $accent-color == accent-pink {
+    @include border-left-color(#ff4081);
+  } @else if $accent-color == accent-purple {
+    @include border-left-color(#e040fb);
+  } @else if $accent-color == accent-red {
+    @include border-left-color(#ff5252);
+  } @else if $accent-color == accent-teal {
+    @include border-left-color(#64ffda);
+  } @else if $accent-color == accent-yellow {
+    @include border-left-color(#ff0);
+  }
+}

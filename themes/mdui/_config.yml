@@ -1,0 +1,119 @@
+# Theme config
+router: false
+
+style:
+  primary_color: "#000000"
+  accent_color: "blue"
+  bg_color: "#ffffff"
+  hoverable: true
+
+info:
+  bg_image: /images/header.png
+  avatar: /images/head_icon.jpg
+  slogan: "Minecraft Addon作者、不会写歌的音乐人"
+  sns:
+    BiliBili:
+      link: https://space.bilibili.com/15122547
+      md: 'tv-alt'
+
+# HTML head
+head:
+  favicon: /images/favicon.png
+  high_res_favicon: /images/favicon.png
+  apple_touch_icon: /images/favicon.png
+  keywords: blog, hexo, mdui
+
+# Search
+search: true
+
+# Post
+post:
+  entry_excerpt: 80
+  random_pics: false
+  qr_code: true
+  prism:
+    theme: vs
+    line_number: true
+  license:
+    name:
+    link:
+  word_count: true
+  read_time: false
+  donate:
+    为他发电:
+      link: https://afdian.net/@qsy55
+      md: 'donate'
+
+share_menu:
+  rss: false
+  weibo: true
+  twitter: true
+  facebook: true
+  googleplus: false
+  linkedin: false
+  qq: true
+  telegram: false
+
+pages:
+  作品仓库:
+    cascade: true
+    md: 'store'
+    pages:
+      工业时代:
+        link: "/works/icib/"
+        type: 'internal'
+        md: "view_agenda"
+      即将到来:
+        link: "/works/afterglow_of_death_land/"
+        type: 'internal'
+        md: "home"
+  榫框架:
+    link: "/mortise/"
+    type: 'internal'
+    md: "code"
+  脚本指南:
+    link: "/pioneer/"
+    type: 'internal'
+    md: "book"
+  作品wiki:
+    cascade: true
+    md: 'local_library'
+    pages:
+      工业时代:
+        link: "/wikis/icib/"
+        type: 'internal'
+  赞助支持:
+    link: "/donate/"
+    type: 'internal'
+    md: 'monetization_on'
+# comment
+comment:
+    use:
+    shortname:
+
+# footer
+footer:
+  since: 2020
+  ICP:
+  image:
+  last_updated:
+
+# Service Worker
+service_worker:
+
+# scss
+node_sass:
+  debug: false
+  outputStyle: compressed
+  precision: 5
+  sourceComments: false
+
+# Vendors
+vendors:
+  style_min_css:
+  outdatedbrowser_min_js:
+  js_min_js:
+  custom_head:
+  custom_js:
+
+debug: false

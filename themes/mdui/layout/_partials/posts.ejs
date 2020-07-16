@@ -1,0 +1,110 @@
+<%
+  var randomPic = Math.floor(Math.random() * theme.post.random_pics + 1);
+%>
+
+<% if (site.posts.length > 0) { %>
+  <div class="theme-posts__post">
+    <article class="mdui-card <% if (theme.style.hoverable === true) { %>mdui-hoverable<% } %>">
+        <section class="mdui-card-media theme-posts__post__media" style="background-image: url(<%= post.thumbnail || config.root + 'images/random/' + randomPic + '.png' %>)">
+        <% if(post.title !== '') { %>
+        <div class="mdui-card-media-covered theme-posts__post__media-covered">
+          <div class="mdui-card-primary mdui-typo">
+            <% if (post.link === '') { %>
+              <a href="<%= url_for(post.path) %>" target="_self" class="mdui-card-primary-title mdui-text-truncate">
+            <% } else { %>
+              <a href="<%= post.link %>" target="_blank" class="mdui-card-primary-title mdui-text-truncate">
+            <% } %>
+              <% if (post.pinned === true) { %>
+                <span style="color: #D50000"><%= '['+ __('posts.pinned') + '] ' %></span>
+              <% } %>
+                <%= post.title %>
+            </a>
+          </div>
+        </div>
+        <% } else { %>
+          <% if (post.link === '') { %>
+            <a href="<%= url_for(post.path) %>" target="_self" class="mdui-card-primary-title mdui-text-truncate">
+          <% } else { %>
+            <a href="<%= post.link %>" target="_blank" class="mdui-card-primary-title mdui-text-truncate">
+          <% } %>
+            <div class="mdui-card-media-covered theme-posts__post__media-covered">
+              <div class="mdui-card-primary mdui-typo" style="line-height: 36px;">
+                &#x200b;
+              </div>
+            </div>
+          </a>
+        <% } %>
+      </section>
+      <section class="mdui-card-content">
+        <%- strip_html(truncate(post.content,{length: theme.post.entry_excerpt })) %>
+      </section>
+      <div class="mdui-divider" style="margin: 0 16px;"></div>
+      <section class="theme-posts__post__footer">
+        <% if (post.categories && post.categories.length) { %>
+          <% if (post.categories.length === 1) { %>
+            <% post.categories.map(function(category){ %>
+              <a href="<%= url_for(category.path) %>" class="theme-link--no-style">
+                <div class="mdui-chip theme-posts__post__footer__categories">
+                  <span class="mdui-chip-icon">
+                    <i class="mdui-icon material-icons mdui-text-center">&#xe86e;</i>
+                  </span>
+                  <span class="mdui-chip-title"><%= category.name %></span>
+                </div>
+              </a>
+            <% }) %>
+          <% } else { %>
+            <div class="theme-posts__post__footer__categories mdui-valign">
+              <button class="mdui-btn mdui-btn-icon mdui-btn-dense mdui-ripple" mdui-menu="{target: '#post-categories-<%= page.current %>-<%= position %>'}">
+                <i class="mdui-list-item-icon mdui-icon material-icons">&#xe86e;</i>
+              </button>
+              <ul class="mdui-menu" id="post-categories-<%= page.current %>-<%= position %>">
+                <% post.categories.map(function(category){ %>
+                  <li class="mdui-menu-item">
+                    <a href="<%= url_for(category.path) %>" class="mdui-ripple">
+                      <span><%= category.name %></span>
+                    </a>
+                  </li>
+                <% }) %>
+              </ul>
+            </div>
+          <% } %>
+        <% } %>
+        <% if (post.tags && post.tags.length) { %>
+          <% if (post.tags.length === 1) { %>
+            <% post.tags.map(function(tag){ %>
+              <a href="<%= url_for(tag.path) %>" class="theme-link--no-style">
+                <div class="mdui-chip theme-posts__post__footer__tags">
+                  <span class="mdui-chip-icon">
+                    <i class="mdui-icon fa fa-tags mdui-text-center"></i>
+                  </span>
+                  <span class="mdui-chip-title"><%= tag.name %></span>
+                </div>
+              </a>
+            <% }) %>
+          <% } else { %>
+            <div class="theme-posts__post__footer__tags mdui-valign">
+              <button class="mdui-btn mdui-btn-icon mdui-btn-dense mdui-ripple" mdui-menu="{target: '#post-tags-<%= page.current %>-<%= position %>'}">
+                <i class="mdui-list-item-icon mdui-icon fa fa-tags mdui-text-center"></i>
+              </button>
+              <ul class="mdui-menu" id="post-tags-<%= page.current %>-<%= position %>">
+                <% post.tags.map(function(tag){ %>
+                  <li class="mdui-menu-item">
+                    <a href="<%= url_for(tag.path) %>" class="mdui-ripple">
+                      <span><%= tag.name %></span>
+                    </a>
+                  </li>
+                <% }) %>
+              </ul>
+            </div>
+          <% } %>
+        <% } %>
+        <div class="theme-spacer"></div>
+        <div class="mdui-valign">
+          <div>
+            <%= date(post.date, 'MMM DD, YYYY') %>
+          </div>
+        </div>
+      </section>
+    </article>
+  </div>
+<% } %>

@@ -1,0 +1,85 @@
+<script type="text/javascript">
+  themeRuntime.scriptsMap.posts = [];
+  (function() {
+    var fabTopFlag = false;
+    var fabEl = document.getElementById('index-fab');
+    function fabShowHide() {
+      var bodyScrolled = document.documentElement.scrollTop || document.body.scrollTop;
+      if (bodyScrolled > 0 && !fabTopFlag) {
+        fabEl.classList.remove('mdui-fab-hide');
+        fabTopFlag = true;
+      } else if (bodyScrolled === 0 && fabTopFlag) {
+        fabEl.classList.add('mdui-fab-hide');
+        fabTopFlag = false;
+      }
+    }
+    fabShowHide()
+    window.addEventListener('scroll', fabShowHide);
+    var listener = {
+      function: fabShowHide,
+      event: 'scroll',
+      el: window,
+      removed: false
+    }
+    themeRuntime.scriptsMap.posts.push(listener)
+  })();
+
+  (function() {
+    var pageTotal = <%= page.total %>
+    var pageNext = 2
+    var pageLoad = false
+    themeRuntime.temp = {
+      index: 1
+    }
+    function morePosts() {
+      var screenHeight = window.innerHeight;
+      var compareHeight = document.body.clientHeight -  (document.documentElement.scrollTop || document.body.scrollTop);
+      var loadStatus = pageNext - themeRuntime.temp.index
+      if (screenHeight >= compareHeight - 1 && loadStatus === 1 && pageLoad === false) {
+        if (pageNext <= pageTotal) {
+          loadProgressInline(false)
+          var url = window.location.href + "<%= config.pagination_dir %>/" + pageNext + "/"
+          themeRuntime.temp.index = pageNext;
+          //console.log(pageTotal, url)
+          pageLoad = true;
+          fetch(url, {
+              method:'GET',
+              mode:'cors',
+              credentials: 'include'
+          })
+          .then(function(response) {
+            return response.text()
+          }).then(function(HTML) {
+            var fakeDom = document.createElement('html');
+            fakeDom.innerHTML = HTML
+            var morePostsHTML = fakeDom.querySelector('.theme-posts').innerHTML
+            var postsArea = document.querySelector(".theme-posts")
+            loadProgressInline(true)
+            postsArea.insertAdjacentHTML('beforeend', morePostsHTML)
+            pageNext++;
+            pageLoad = false;
+          }).catch(function(error) {
+            mdui.alert(error, "<%= __('error.title') %>");
+            pageLoad = false;
+          })
+        }
+      }
+    }
+    function loadProgressInline(state) {
+      var progressEl = document.getElementById('progressBar')
+      if (state === true) {
+        progressEl.classList.add('theme-appbar__progress--hidden')
+      } else if (state === false) {
+        progressEl.classList.remove('theme-appbar__progress--hidden')
+      }
+    }
+    window.addEventListener('scroll', morePosts);
+    var listener = {
+      function: morePosts,
+      event: 'scroll',
+      el: window,
+      removed: false
+    }
+    themeRuntime.scriptsMap.posts.push(listener)
+  })();
+</script>

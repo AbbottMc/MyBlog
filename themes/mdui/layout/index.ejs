@@ -1,0 +1,37 @@
+<div class="theme-index">
+  <div class="theme-posts">
+    <%
+      var position = 0;
+      var posts = page.posts.filter(function(post) {
+        if (post.pinned) {
+        %>
+      <%-partial('_partials/posts', { position: position, post })%>
+    <%
+      position++;
+        return false;
+      }
+        return true;
+      })
+    %>
+    <% posts.forEach(function(post) { %>
+      <%-partial('_partials/posts', { position: position, post })%>
+    <%
+      position++;
+    }); %>
+    <% if (page.current === page.total) { %>
+      <div class="theme-end-footer">
+        <div class="mdui-text-center mdui-text-color-theme-text">
+          <%= __('search.footer') %>
+        </div>
+      </div>
+    <% } else { %>
+      <div class="theme-end-footer">
+        <div class="mdui-text-center mdui-text-color-theme-text">
+          <%= page.current + ' of ' + page.total %>
+        </div>
+      </div>
+    <% } %>
+  </div>
+  <%-partial('_partials/fab/index')%>
+</div>
+<%-partial('_partials/js/index')%>

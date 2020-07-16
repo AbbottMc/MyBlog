@@ -1,0 +1,62 @@
+$main-class: theme-posts;
+
+.#{$main-class} {
+  margin: 0 auto;
+  margin-top: 16px;
+  width: 64%;
+  max-width: 1024px;
+  @media (max-width: 599px) {
+    width: 92%;
+  }
+}
+
+// Single post
+.#{$main-class}__post {
+  $sub-class: #{$main-class}__post;
+  padding-bottom: 16px;
+  * {
+    overflow: visible;
+    white-space: normal;
+  }
+  .#{$sub-class}__media {
+    $sub-sub-class: #{$sub-class}__media;
+    height: 224px;
+    background-repeat: repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    background-origin: padding-box;
+    background-attachment: scroll;
+    .#{$sub-sub-class}__image {
+      display: none;
+    }
+  }
+  .#{$sub-class}__footer {
+    $sub-sub-class: #{$sub-class}__footer;
+    padding: 16px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: row;
+    -webkit-box-flex: auto;
+    -ms-flex: auto;
+    flex: auto;
+    -webkit-box-orient: horizontal;
+    box-orient: horizontal;
+    -ms-flex-direction: row;
+    .#{$sub-sub-class}__categories button {
+      background-color: #989898;
+      i {
+        color: #fff;
+      }
+    }
+    .#{$sub-sub-class}__tags {
+      margin-left: 8px;
+      button {
+        background-color: #989898;
+        i {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
