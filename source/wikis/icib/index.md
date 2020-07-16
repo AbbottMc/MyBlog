@@ -1,6 +1,7 @@
 ---
 title: 工业时代基岩版【IC In Bedrock】
 date: 2020-07-15 00:51:47
+export_md: false
 ---
 
 ### 版本
@@ -9,19 +10,19 @@ date: 2020-07-15 00:51:47
 
 #### 最新：
 
-- [v0.4.0 镭射更新](/wikis/icib/update_log/v0.4.0.html)
+- [v0.4.0 镭射更新](/MyBlog/wikis/icib/update_log/v0.4.0.html)
 
 #### 历史：
 
-- [v0.3.0 饮品更新](/wikis/icib/update_log/v0.3.0.html)
+- [v0.3.0 饮品更新](/MyBlog/wikis/icib/update_log/v0.3.0.html)
 
   
 
-- [v0.2.0 粘稠更新](/wikis/icib/update_log/v0.2.0.34.html)
+- [v0.2.0 粘稠更新](/MyBlog/wikis/icib/update_log/v0.2.0.34.html)
 
   
 
-- [v0.1.0 矿石更新](/wikis/icib/update_log/v0.1.0.html)
+- [v0.1.0 矿石更新](/MyBlog/wikis/icib/update_log/v0.1.0.html)
 
 ### 统计
 

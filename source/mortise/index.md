@@ -10,7 +10,7 @@ export_md: false
 
 榫核心框架（**Mortise Core Frame**）是一款适用于Minecraft基岩版的前置Addon，主要封装并提供了一些便捷的方法供脚本开发者使用，目前仍在内测开发中，尚未发布相关文档。
 
-<img src="\mortise\images\mortise_icon.png" style="width:128px;height:128px"></img>
+<img src="\MyBlog\mortise\images\mortise_icon.png" style="width:128px;height:128px"></img>
 
 <!---<div style="width:100%"><div style="display:flex;position:absolute;left:40%;color:grey;font-size:13px;align-items:center">榫核心框架Alpha测试版图标</div></div>--->
 
@@ -24,14 +24,14 @@ export_md: false
 
 | 图标                                                         | 附加包名称     | 版本   | 作者                                          | 下载地址                                            |
 | ------------------------------------------------------------ | -------------- | ------ | --------------------------------------------- | --------------------------------------------------- |
-| <img src="\mortise\images\icib_icon.png" style="width:64px;height:64px"/> | 工业时代基岩版 | v0.4.0 | [乾山瑶](https://space.bilibili.com/15122547) | [点此进入](/works/icib/index.html)                  |
-| <img src="\mortise\images\mswy_icon.png" style="width:64px;height:64px"/> | 污秽之地基岩版 | v2.0   | [汐](https://space.bilibili.com/401779175)    | [点此进入](https://www.bilibili.com/read/cv6769795) |
+| <img src="\MyBlog\mortise\images\icib_icon.png" style="width:64px;height:64px"/> | 工业时代基岩版 | v0.4.0 | [乾山瑶](https://space.bilibili.com/15122547) | [点此进入](/works/icib/index.html)                  |
+| <img src="\MyBlog\mortise\images\mswy_icon.png" style="width:64px;height:64px"/> | 污秽之地基岩版 | v2.0   | [汐](https://space.bilibili.com/401779175)    | [点此进入](https://www.bilibili.com/read/cv6769795) |
 
 #### 七巧UI框架
 
-七巧UI框架（**Tangram UI Frame**）是一款以提供更加便捷的Minecraft风格UI创建方式为目的的前端框架。它以JSON数据为载体，提供了一套模块化的UI创建方式。目前仍在开发中。将来将会与榫核心框架进行对接，提供一套较为完善前后端数据传输方案。
+七巧UI框架（**Tangram UI Frame**）是一款以提供更加便捷的Minecraft风格UI创建方式为目的的前端框架。它以JSON数据为载体，提供了一套模块化的UI创建方式。目前仍在开发中。将来将会与榫核心框架进行对接，提供一套较为完善"前后端"数据传输方案。
 
-<img src="/mortise/images/tangram.jpg" style="zoom:30%" />
+<img src="/MyBlog/mortise/images/tangram.jpg" style="zoom:30%" />
 
  
 

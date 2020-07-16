@@ -60,19 +60,19 @@ pages:
     md: 'store'
     pages:
       工业时代:
-        link: "/works/icib/"
+        link: "/MyBlog/works/icib/"
         type: 'internal'
         md: "view_agenda"
       即将到来:
-        link: "/works/afterglow_of_death_land/"
+        link: "/MyBlog/works/afterglow_of_death_land/"
         type: 'internal'
         md: "home"
   榫框架:
-    link: "/mortise/"
+    link: "/MyBlog/mortise/"
     type: 'internal'
     md: "code"
   脚本指南:
-    link: "/pioneer/"
+    link: "/MyBlog/pioneer/"
     type: 'internal'
     md: "book"
   作品wiki:
@@ -80,10 +80,10 @@ pages:
     md: 'local_library'
     pages:
       工业时代:
-        link: "/wikis/icib/"
+        link: "/MyBlog/wikis/icib/"
         type: 'internal'
   赞助支持:
-    link: "/donate/"
+    link: "/MyBlog/donate/"
     type: 'internal'
     md: 'monetization_on'
 # comment

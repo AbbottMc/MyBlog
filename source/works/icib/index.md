@@ -17,9 +17,9 @@ export_md: false
 
 适用游戏版本：`1.16.0+`
 
-更新日志：[点此查看](/wikis/icib/update_log/v0.4.0.html)
+更新日志：[点此查看](/MyBlog/wikis/icib/update_log/v0.4.0.html)
 
-Wiki ：[点此进入](/works/icib/index.html)
+Wiki ：[点此进入](/MyBlog/works/icib/index.html)
 
 ### 简介
 
@@ -31,6 +31,6 @@ Wiki ：[点此进入](/works/icib/index.html)
 
 [点此下载 v0.4.0](https://wws.lanzous.com/iaI94ej4wji)
 
-<img src="\works\images\icib_cover.png"></img>
+<img src="\MyBlog\works\images\icib_cover.png"></img>
 
 [历史版本(密码：83cr)](https://wws.lanzous.com/b01bjj2xg)
