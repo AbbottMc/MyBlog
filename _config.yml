@@ -4,9 +4,9 @@
 
 # Site
 title: 乾山瑶的小站
-subtitle: '归纳与总结'
-description: '乾山瑶的主要作品存放地'
-keywords: 脚本引擎指南、榫核心框架、工业时代基岩版Addon
+subtitle: '常总结，常进步'
+description: '某只鸽子的储藏室'
+keywords: 日志、脚本引擎指南、榫核心框架、工业时代基岩版Addon
 author: 乾山瑶
 language: zh-CN
 timezone: ''
@@ -51,6 +51,11 @@ highlight:
   tab_replace: ''
   wrap: true
   hljs: false
+prismjs:
+  enable: true
+  preprocess: true
+  line_number: false
+  tab_replace: ""
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -93,7 +98,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: mdui
+theme: yun
 search:
   path: search.json
   field: all

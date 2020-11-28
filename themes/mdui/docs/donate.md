@@ -6,7 +6,7 @@ If you like my theme, star me on Github to encourage me to maintain and develop!
 If you are a kind person, just donate me to `force` me to maintain and develop! ヽ(✿ﾟ▽ﾟ)ノ
 
 ## Donate methods
-- [AliPay/WePay](/images/wap.png)
+- [AliPay/WePay](/source/images/wap.png)
 
 - [Paypal](https://paypal.me/iHalyul)
 

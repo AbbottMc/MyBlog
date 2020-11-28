@@ -4,7 +4,9 @@ date: 2020-07-14 21:31:47
 export_md: false
 ---
 
-<section class="theme-post__card__license mdui-typo">前置需求: <a href="/mortise/index.html">榫核心框架Addon</a> 请确保该前置附加包在游戏时被应用且位于本附加包底层</section>
+> 
+>
+> 前置需求: [榫核心框架Addon](/mortise/index.html) 请确保该前置附加包在游戏时被应用且位于本附加包底层
 
 <section class="mdui-typo theme-post__card__content">
           <h1><b id="镭射更新-版本-v040">| 工业时代基岩版【IC In Bedrock】</b></h1>
@@ -29,6 +31,6 @@ export_md: false
 
 ### 下载地址
 
-[点此下载 v0.4.0](https://wws.lanzous.com/iTCDBeo1zxc)
+[点此下载 v0.4.0](https://www.lanzous.com/iTCDBeo1zxc)
 
 <img src="\MyBlog\works\images\icib_cover.png"></img>

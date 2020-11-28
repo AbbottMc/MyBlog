@@ -6,7 +6,7 @@ hexoi-theme-mdui 是采用 GPL V3 许可的开源项目，使用完全免费。<
 如果您觉得您是一个慷慨大方的人，那就通过捐助我来`鞭策`我继续维护、开发吧！ヽ(✿ﾟ▽ﾟ)ノ
 
 ## 捐助方式
-- [支付宝/微信](/images/wap.png)
+- [支付宝/微信](/source/images/wap.png)
 
 - [Paypal](https://paypal.me/iHalyul)
 
