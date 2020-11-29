@@ -1,5 +1,5 @@
 ---
-title: 作品集
+title: 工业时代基岩版【IC In Bedrock】
 date: 2020-07-14 21:31:47
 export_md: false
 ---
@@ -7,10 +7,6 @@ export_md: false
 > 
 >
 > 前置需求: [榫核心框架Addon](/mortise/index.html) 请确保该前置附加包在游戏时被应用且位于本附加包底层
-
-<section class="mdui-typo theme-post__card__content">
-          <h1><b id="镭射更新-版本-v040">| 工业时代基岩版【IC In Bedrock】</b></h1>
-
 
 
 ### 基本信息
@@ -20,6 +16,8 @@ export_md: false
 适用游戏版本：`1.16.0+`
 
 相关Wiki ：[点此进入](/MyBlog/wikis/icib/index.html)
+
+作者：[乾山瑶](https://space.bilibili.com/15122547)
 
 介绍视频：https://www.bilibili.com/video/BV1PT4y1E7UY/
 
