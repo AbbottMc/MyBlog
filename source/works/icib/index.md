@@ -19,7 +19,7 @@ export_md: false
 
 适用游戏版本：`1.16.0+`
 
-相关Wiki ：[点此进入](/MyBlog/works/icib/index.html)
+相关Wiki ：[点此进入](/MyBlog/wikis/icib/index.html)
 
 介绍视频：https://www.bilibili.com/video/BV1PT4y1E7UY/
 
