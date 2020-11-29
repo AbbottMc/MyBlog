@@ -1,4 +1,4 @@
-const pkg = require("../../package.json");
+const pkg = require("../../../../package.json");
 hexo.on("generateBefore", () => {
   require("./data")(hexo);
   // Merge config.
@@ -6,6 +6,6 @@ hexo.on("generateBefore", () => {
 });
 
 hexo.on("ready", () => {
-  const { version } = require("../../package.json");
+  const { version } = require("../../../../package.json");
   hexo.log.info(`Yun version ${version}. Guide: ${pkg.homepage}`);
 });
